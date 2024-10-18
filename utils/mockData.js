@@ -1,0 +1,1 @@
+export const lists = ["Vegediv", "Fruit", "Salad"];
