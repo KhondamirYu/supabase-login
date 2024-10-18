@@ -8,7 +8,7 @@ export const GoogleSignIn = async () => {
         provider: 'google',
         options: {
             scopes: 'https://www.googleapis.com/auth/userinfo.email',
-            redirectTo: `http://localhost:3000/`,
+            redirectTo: process.env.NEXT_PUBLIC_URL,
         },
     })
 }
@@ -18,7 +18,8 @@ export const EmailSignUp = async (fullName, email, password) => {
         email: email,
         password: password,
         options: {
-            data: { full_name: fullName }, 
+            data: { full_name: fullName },
+            redirectTo: `${process.env.NEXT_PUBLIC_URL}/login`,
         },
     });
 };
@@ -28,7 +29,7 @@ export const EmailLogin = async (email, password) => {
         email,
         password,
         options: {
-            emailRedirectTo: 'http://localhost:3000/',
+            emailRedirectTo: process.env.NEXT_PUBLIC_URL,
         },
     })
 }
