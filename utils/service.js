@@ -19,20 +19,18 @@ export const EmailSignUp = async (fullName, email, password) => {
         password: password,
         options: {
             data: { full_name: fullName },
-            redirectTo: `${process.env.NEXT_PUBLIC_URL}/login`,
+            // redirectTo: `${process.env.NEXT_PUBLIC_URL}/login`,
         },
     });
 };
 export const EmailLogin = async (email, password) => {
-    console.log(email, password)
-    await supabase.auth.signInWithPassword({
-        email,
-        password,
-        options: {
-            emailRedirectTo: process.env.NEXT_PUBLIC_URL,
-        },
-    })
-}
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      return false;
+    }
+    return true;
+  };
+  
 
 export const getUser = async () => {
     const { data: auth } = await supabase.auth.getUser()

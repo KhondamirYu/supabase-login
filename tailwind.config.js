@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        borderChange: {
+          '0%': { borderLeftColor: 'transparent', borderRightColor: 'transparent' },
+          '100%': { borderLeftColor: 'gray', borderRightColor: 'gray' },
+        },
+      },
+      animation: {
+        borderChange: 'borderChange 1s ease-in-out forwards',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
