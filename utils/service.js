@@ -12,6 +12,15 @@ export const GoogleSignIn = async () => {
         },
     })
 }
+export const GitHubSignIN = async () => {
+    await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+            scopes: 'https://www.googleapis.com/auth/userinfo.email',
+            redirectTo: process.env.NEXT_PUBLIC_URL,
+        },
+    })
+}
 export const EmailSignUp = async (fullName, email, password) => {
 
     await supabase.auth.signUp({

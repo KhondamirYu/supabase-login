@@ -41,7 +41,7 @@ export default function Navbar() {
         </div>
       ) : (
         <Link
-          href="/login"
+          href="/login#signIn"
           className="border rounded p-1 text-black-30 text-base font-medium"
         >
           Log in
