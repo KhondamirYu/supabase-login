@@ -1,14 +1,29 @@
+"use client";
 import LogIn from "@/Components/Login";
 import Registration from "@/Components/Registration";
-import bgImage from "./../../src/public/images/bgImage.jpg";
+import { useState } from "react";
+
 export default function Login() {
+  const [isPage, setIsPage] = useState(1);
+
   return (
-    <div
-      className="relative bg-cover bg-no-repeat w-screen h-screen" // Ensures the background covers the whole screen
-      style={{ backgroundImage: `url(${bgImage.src})`}} // Correctly applying the background image
-    >
-      <LogIn />
-      {/* <Registration /> */}
+    <div className="relative backgroundImage w-screen h-screen">
+      {isPage === 1 && (
+        <LogIn
+          id="signIn"
+          isPage={isPage}
+          setIsPage={setIsPage}
+          className="flex justify-center items-center"
+        />
+      )}
+      {isPage === 2 && (
+        <Registration
+          id="signUp"
+          isPage={isPage}
+          setIsPage={setIsPage}
+          className="flex justify-center items-center"
+        />
+      )}
     </div>
   );
 }

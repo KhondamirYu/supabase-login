@@ -1,8 +1,5 @@
 import { useState } from "react";
-import visibility01 from "./../../public/icons/visibility01.svg";
-import visibility02 from "./../../public/icons/visibility02.svg";
 import MiniImage from "./MiniImage";
-import userImage from "./../../public/icons/userIcon.svg";
 export default function Input({
   variant,
   label,
@@ -31,7 +28,7 @@ export default function Input({
         >
           <label htmlFor={name}>{label}</label>
           <div className="flex justify-start gap-2 items-center">
-            <MiniImage alt="userIcon" src={userImage} />
+            <MiniImage alt="userIcon" src="/icons/userIcon.svg" />
             <input
               type={type}
               name={name}
@@ -58,9 +55,9 @@ export default function Input({
               }}
             >
               {isActive ? (
-                <MiniImage alt="eyeOpen" src={visibility02} />
+                <MiniImage alt="eyeOpen" src="icons/visibility02.svg" />
               ) : (
-                <MiniImage alt="eyeOpen" src={visibility01} />
+                <MiniImage alt="eyeOpen" src="icons/visibility01.svg" />
               )}
             </div>
             <input
